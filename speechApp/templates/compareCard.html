@@ -1,0 +1,16 @@
+{% block content %}
+
+
+<tr class='row' role='button'>
+	<td><img src='{{ s.Image }}' class="img-circle" alt="Responsive image" width="35" height="35"></td>
+	<td><a class="default" href="/profile/?path=/songs/{{ s.id }}"><strong>{{ s.Title }}</strong<></a></td>
+	<td><strong>{{ s.Artist }}</strong></td>
+	<td><strong>{{ s.setCount }}</strong></td>
+	<td><strong>{{ s.diversity }}</strong></td>
+	<td><strong>{{ s.density }}</strong></td>
+	<td><strong>{{ s.gradeLevel }}</strong></td>
+	<td><strong>{{ s.readability }}</strong></td>
+</tr>
+
+
+{% endblock %}

@@ -1,0 +1,85 @@
+{% extends "header.html" %}
+
+{% block content %}
+<!-- <script type="text/javascript" src="scripts/soundcloud.player.api.js"></script>
+<script type="text/javascript">
+   soundcloud.addEventListener('onPlayerReady', function(player, data) {
+     player.api_play();
+   });
+</script> -->
+<!-- <div class="row"> -->
+	<center>
+		<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+			<div class="panel panel-success">
+				<div class="panel-heading"  role="tab" id="heading1">
+					<center><h1 class="panel-title">
+						<img src='{{ Image }}' class="img-circle" alt="Responsive image" width="70" height="70">
+						<!-- <button type="button" class="btn btn-default btn-lg" data-toggle="collapse" data-parent="#accordion" href="#details" aria-expanded="true" aria-controls="collapseOne"> -->
+  							<a role="button" data-toggle="collapse" data-parent="#accordion" href="#details" aria-expanded="true" aria-controls="collapseOne"><span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span> {{ Title }} - {{ Artist }}
+						</a>
+						<!-- </button> -->
+					</h1></center>
+				</div>
+			  	<div id="details" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading1">
+			  		<div class="panel-body">
+						<div class = "col-sm-4">
+							<img src='{{ Image }}' class="img-circle" alt="Responsive image" width="280" height="280">
+						</div>
+						<div class = "col-sm-8">
+							<p>{{ Description }}</p>
+							<div class="embed-responsive embed-responsive-16by9" width=100%>
+							  		<iframe class="embed-responsive-item" src='{{ Link }}?autoplay=0'></iframe>
+							</div>
+						</div>
+					</div>
+			  	</div>
+			  </div>
+	  </div>
+	</center>
+<!-- </div> -->
+
+<div class="row">
+	<div class = "col-sm-2">
+		{% include "statCards.html" with label="Album" variable=Album %}
+		{% include "statCards.html" with label="Unique Words / Total Words" variable=setCount %}
+		{% include "statCards.html" with label="Lexical Diversity" variable=diversity %}
+		{% include "statCards.html" with label="Lexical Density" variable=density %}
+		{% include "statCards.html" with label="Grade Level" variable=gradeLevel %}
+		{% include "statCards.html" with label="Flesch Readability Score" variable=readability %}
+	</div>
+	<div class="col-sm-7">
+		<body>
+		<div class="list-group">
+			{% for line in lyrics %}
+				<button type="button" class="list-group-item">{{ line }}</button>
+			{% endfor %}
+		</ul>
+		</body>
+		</div>
+	</div>
+	<div class="col-sm-3">
+		<div class="row">
+			<div class="panel panel-success">
+				<div class="panel-heading" role="tab" data-toggle="collapse" href="#collapseWriter" aria-expanded="true" aria-controls="collapseWriter">
+				<h4 class="panel-title">Writers  <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></h4>
+				</div>
+				<div class="collapse in" id="collapseWriter">
+					<div class="panel-body">
+						<ul class="list-group">
+						{% for word in writers %}
+						<div class="media">
+							<li class="list-group-item"><div class="media-left">
+								<img src='{{ word.1 }}' class="img-circle" alt="Responsive image" width="35" height="35"> {{ word.0 }}
+							</div></li>
+						</div>
+						{% endfor %}
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		{% include "topList.html" with label="Top 10 Words" variable=top id="top10" %}
+		{% include "topList.html" with label="Top Content Words" variable=topContent id="topContent" %}
+	</div>
+</div>
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends "header.html" %}
+
+{% block content %}
+<div class="col-sm-2"></div>
+<div class="col-sm-8">
+	<div class='container-fluid'>
+		<body>
+			<div class="list-group">
+				{% for hit in hits %}
+						<a href="{% url 'speechApp.views.profile' %}?path={{ hit.1 }}" class="list-group-item">{{ hit.0 }}</a>
+				{% endfor %}
+			</div>
+		</body>
+	</div>
+</div>
+<div class="col-sm-2">
+</div>
+
+{% endblock %}

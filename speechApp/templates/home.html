@@ -1,0 +1,30 @@
+{% extends "header.html" %}
+
+{% block content %}
+<div class ="row">
+	<table class="table table-hover">
+		<tbody>
+		{% for song in playlist %}
+			{% include "compareCard.html" with s=song %}
+		{% endfor %}
+		</tbody>
+	</table>
+</div>
+<!-- 	<form name = "searchTerm" action = "{% url 'speechApp.views.search' %}" method = "POST">{% csrf_token %}
+	<div class="col-sm-8">
+
+		<div class='container-fluid'>
+			<br><br>
+			<form name = "searchBar" action = "{% url 'speechApp.views.search' %}" method = "POST">{% csrf_token %}
+				<input type="text" placeholder="Search For A Song" name="searchString">
+		</div>
+	</div>
+
+	<div class="col-sm-2">
+
+		<div class='container-fluid'>
+			<br><br>
+			<button class="btn btn-default" type="submit">Search</button>
+		</div>
+	</div> -->
+{% endblock %}

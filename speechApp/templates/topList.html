@@ -1,0 +1,21 @@
+<div class ="row">
+	<div class="panel panel-success">
+		<div class="panel-heading" role="tab" data-toggle="collapse" href="#{{ id }}" aria-expanded="true" aria-controls="{{ id }}">
+			<h5 class="panel-title"><span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span>  {{ label }}</h5>
+		</div>
+		<div class="collapse" id="{{ id }}">
+			<table class="table table-striped">
+				<tbody>
+					{% for word in variable %}
+					
+						<tr>
+							<td><strong>{{ word.0.0 }}</strong></td>
+							<td><strong>{{ word.0.1 }}</strong></td>
+							<td><strong>{{ word.1 }}%</strong></td>
+						</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

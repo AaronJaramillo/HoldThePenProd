@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Hold The Pen</title>
+	<meta charset="utf-8" />
+	{% load staticfiles %}
+	<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+	<link rel="stylesheet" href="{% static 'speechApp/css/bootstrap.min.css' %}" type = "text/css"/>
+	<script src="{% static 'speechApp/js/bootstrap.min.js' %}"></script>
+	<meta name="viewport" content = "width=device-width, initial-scale=1.0">
+	
+	<style type="text/css">
+		html,
+		body {
+		  height:100%
+		}
+	</style>
+</head>
+
+<body class="body" style="background-color:#f6f6f6">
+	<div class="container-fluid" style="min-height:95%; ">
+		<div class="row">
+			  <!-- <div class="col-sm-2">
+				  <br>
+				  <center>
+					<img src="{% static 'personal/img/profile.jpg' %}" class="responsive-img" style='max-height:100px;' alt="face">
+				  </center>
+			  </div> -->
+			<div class="col-md-1">
+				<br>
+			</div>
+
+			<div class="col-md-2">
+				<div class="row">
+					<center>
+						<h3><a href="/"<span class="label label-default" role="button"> Hold The Pen</span></a></h3>
+					</center>
+				</div>
+			</div>
+		  <div class="col-md-9">
+			  	<div class="row">
+			  	<br>
+		  		<form name = "searchBar" action = "{% url 'speechApp.views.search' %}" method = "POST">{% csrf_token %}
+					<div class="col-sm-8">
+							<div class="input-group">
+								<input type="text" class="form-control" placeholder="Search For A Song" name="searchString">
+									<span class="input-group-btn">
+	       								 <button class="btn btn-secondary" type="submit">Search</button>
+	  								</span>
+							</div>
+					</div>
+				</form>
+				</div>
+<!-- 					<div class="col-sm-2">
+						<button class="btn btn-default" type="submit">Search</button>
+					</div> -->
+		  	</div>
+		</div><hr>
+
+		<!-- <div class="row">
+			<div class="col-sm-2">
+well bs-sidebar affix
+			</div> <!col-sm-2-->
+	<div class="row">
+		<div class="col-sm-12">
+			<div class='container-fluid'>
+				{% block content %}
+				{% endblock %}	
+			</div>
+		</div>
+	</div>
+
+		</div>
+	</div>
+	<footer>
+		<div class="container-fluid" style='margin-left:15px'>
+			<p><a href="#" target="blank">Contact</a> | <a href="#" target="blank">LinkedIn</a> | <a href="#" target="blank">Twitter</a> | <a href="#" target="blank">Google+</a> - Copyright Aaron Jaramillo 2017</p>
+		</div>
+	</footer>	
+	
+</body>
+
+</html>
