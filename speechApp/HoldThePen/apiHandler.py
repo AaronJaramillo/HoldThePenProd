@@ -63,7 +63,7 @@ class Genius:
 		#remove script tags that they put in the middle of the lyrics
 		[h.extract() for h in html('script')]
 		#at least Genius is nice and has a tag called 'lyrics'!
-		lyrics = html.find("lyrics").get_text()
+		lyrics = html.find("div", class_="lyrics").get_text()
 		return lyrics
 
 	# def getWriters(self, writersOB):
